@@ -7,6 +7,7 @@ class DataReader
     @movie_list = []
   end
   
+  #Loads data from file
   def load_data(file_name)
     CSV.foreach(file_name) do |row| #Should be either row or col.
     @movie_list << MovieData.new(row[0], row[1], row[2], row[3])
