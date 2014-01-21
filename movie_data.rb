@@ -1,4 +1,4 @@
-#Prasant Lokinendi
+#Author: Prasant Lokinendi
 
 class MovieRating
   
@@ -65,16 +65,14 @@ class MovieData
     #Returns the ten most popular movies in the database
     def popularity_list
       list = []
+      answer = []
       list_of_ratings.each do |rating|
         temp = MovieRating.new(rating.movie_id, rating.user_id, rating.rating, rating.timestamp)
         list << temp
       end
-      list.sort_by{|movie_id, popularity| popularity}
-      #Returns the ten most popular movies
-      for i in 0..9
-        temp = list[i]
-        puts temp.to_s
-      end
+      answer = list.sort_by{|movie_id, popularity| popularity}
+      #Returns list of popular movies ordered
+      return answer
     end
     
     #Determines similarity by comparing the movies watched and given the same rating.
